@@ -1,13 +1,13 @@
 import React, { useReducer } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import NewsContext from './newsContext';
 import NewsReducer from './newsReducer';
 import {
-  GET_NEWS,
-  UPDATE_NEWS,
-  SET_LOADING,
-  SET_ALERT,
-  REMOVE_ALERT
+  // GET_NEWS,
+  // UPDATE_NEWS,
+  SET_LOADING
+  // SET_ALERT,
+  // REMOVE_ALERT
 } from './../types';
 
 const NewsState = props => {
@@ -522,8 +522,6 @@ const NewsState = props => {
   };
 
   const [state, dispatch] = useReducer(NewsReducer, initialState);
-
-  const setSingle = () => {};
 
   const getNews = () => {
     setLoading();

@@ -15,10 +15,13 @@ const News = () => {
     return <Spinner />;
   } else {
     return (
-      <div className='grid-2'>
-        {news.map(newsItem => (
-          <NewsItem newsItem={newsItem} key={newsItem.url} />
-        ))}
+      <div>
+        <h1 className='tc'>{`${type[0].toUpperCase()}${type.slice(1)}`}</h1>
+        <div className='grid-2'>
+          {news.map(newsItem => (
+            <NewsItem newsItem={newsItem} key={newsItem.url} />
+          ))}
+        </div>
       </div>
     );
   }
