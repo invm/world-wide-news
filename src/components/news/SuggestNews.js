@@ -4,13 +4,13 @@ import NewsContext from '../../context/news/newsContext';
 
 const SuggestNews = () => {
   const newsContext = useContext(NewsContext);
-  const news = newsContext.news.headlines;
+  const news = newsContext.news.general;
   return (
     <div className='suggest'>
       <h3 className='tc'> Suggested News</h3>
       <div className='inner'>
-        {news.map(item => (
-          <NewsItem newsItem={item} key={item.title} parent={'suggest'} />
+        {news.slice(-4).map(item => (
+          <NewsItem newsItem={item} key={item._id} parent={'suggest'} />
         ))}
       </div>
     </div>

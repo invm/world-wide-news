@@ -19,7 +19,8 @@ const NewsState = props => {
       business: [],
       health: [],
       science: [],
-      techology: [],
+      technology: [],
+      entertainment: [],
       sports: []
     },
     newerNews: false,

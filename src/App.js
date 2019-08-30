@@ -39,7 +39,7 @@ function App() {
               <Route component={NotFound} />
             </Switch>
           </div>
-          {/* <SuggestNews /> */}
+          <SuggestNews />
         </div>
       </Router>
     </NewsState>

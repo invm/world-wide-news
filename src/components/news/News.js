@@ -10,7 +10,10 @@ const News = () => {
     'general';
   const news = newsContext.news[`${type}`];
   const loading = newsContext.loading;
-
+  if (news.length % 2) {
+    // only show even number of news for style reasons
+    news.pop();
+  }
   if (loading) {
     return <Spinner />;
   } else {
@@ -19,7 +22,7 @@ const News = () => {
         <h1 className='tc'>{`${type[0].toUpperCase()}${type.slice(1)}`}</h1>
         <div className='grid-2'>
           {news.map(newsItem => (
-            <NewsItem newsItem={newsItem} key={newsItem.title} />
+            <NewsItem newsItem={newsItem} key={newsItem._id} />
           ))}
         </div>
       </div>
