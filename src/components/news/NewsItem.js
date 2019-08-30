@@ -42,7 +42,7 @@ const NewsItem = ({ newsItem, parent }) => {
     <div className='news-item'>
       <div className='header'>
         <p className='badge'>{publishedAt.slice(0, 10)}</p>
-        <p className='badge'>{source.name}</p>
+        <p className='badge'>{source}</p>
       </div>
       <Fragment>
         <h1>{title}</h1>

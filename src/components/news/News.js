@@ -7,7 +7,7 @@ const News = () => {
   const newsContext = useContext(NewsContext);
   const type =
     window.location.pathname.slice(1, window.location.pathname.length - 1) ||
-    'headlines';
+    'general';
   const news = newsContext.news[`${type}`];
   const loading = newsContext.loading;
 
@@ -19,7 +19,7 @@ const News = () => {
         <h1 className='tc'>{`${type[0].toUpperCase()}${type.slice(1)}`}</h1>
         <div className='grid-2'>
           {news.map(newsItem => (
-            <NewsItem newsItem={newsItem} key={newsItem.url} />
+            <NewsItem newsItem={newsItem} key={newsItem.title} />
           ))}
         </div>
       </div>
