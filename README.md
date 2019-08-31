@@ -1,8 +1,13 @@
 # World Wide News
 
+[World Wide News](https://hidden-inlet-95248.herokuapp.com/)
+
 World Wide News is a news site, gathering and categorizing news, shows them in a simple manner.
 
-Will be hosted soon and readme will be edited.
+All the data comes from inner end-point, returning array of news, the client side categorizes them.
+
+The server updates the news daily. 
+
 
 ## Built with the MERN stack
 
