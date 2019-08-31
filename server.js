@@ -41,10 +41,10 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`Server started on port ${port}`);
 
   var j = schedule.scheduleJob('* * 8 * *', function() {
     NewsPiece.find((err, news) => {
