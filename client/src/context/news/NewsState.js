@@ -7,7 +7,7 @@ import {
   FETCH_NEWS,
   SET_LOCATION,
   SET_WEATHER_LOADING
-} from './../types';
+} from '../types';
 
 const NewsState = props => {
   const initialState = {
@@ -71,7 +71,7 @@ const NewsState = props => {
     }
 
     setLoading();
-    //   // Go to db and get news and put into state and save the date of the last update
+    // Go to db and get news and put into state and save the date of the last update
     (async function() {
       const news = {
         general: [],
@@ -84,7 +84,7 @@ const NewsState = props => {
       };
       let res = [];
       await axios
-        .get('../../../../routes/api/news.js')
+        .get('/api/news')
         .then(response => {
           res = [...response.data];
         })
