@@ -1,9 +1,8 @@
 import {
   FETCH_NEWS,
-  UPDATE_NEWS,
   SET_LOADING,
-  SET_ALERT,
-  REMOVE_ALERT
+  SET_LOCATION,
+  SET_WEATHER_LOADING
 } from './../types';
 
 export default (state, action) => {
@@ -14,28 +13,26 @@ export default (state, action) => {
         news: { ...action.payload },
         loading: false
       };
-    // case UPDATE_NEWS:
-    //   return {
-    //     ...state,
-    //     newerNews: action.payload,
-    //     loading: false
-    //   };
-    // case SET_ALERT:
-    //   return {
-    //     ...state,
-    //     news: [],
-    //     loading: false
-    //   };
-    // case REMOVE_ALERT:
-    //   return {
-    //     ...state,
-    //     news: action.payload,
-    //     loading: false
-    //   };
     case SET_LOADING:
       return {
         ...state,
         loading: true
+      };
+    case SET_WEATHER_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    case SET_LOCATION:
+      return {
+        ...state,
+        weather: {
+          loading: false,
+          timezone: action.payload.timezone,
+          summary: action.payload.summary,
+          temperature: action.payload.temperature,
+          icon: action.payload.icon
+        }
       };
     default:
       return state;

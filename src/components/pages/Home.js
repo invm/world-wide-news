@@ -4,7 +4,7 @@ import News from '../news/News';
 const Home = () => {
   return (
     <div>
-      <News type={'headlines'} />
+      <News />
     </div>
   );
 };

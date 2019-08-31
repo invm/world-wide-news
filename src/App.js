@@ -21,23 +21,25 @@ function App() {
         <div className='container'>
           <Navbar />
           <Categories />
-          <Sidebar />
-          <div className='dib'>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
-              <Route
-                exact
-                path='/(sports|entertainment|business|health|science|technology)/'
-                component={News}
-              />
-              <Route
-                exact
-                path='/news/:id'
-                render={props => <NewsItem props={NewsItem} />}
-              />
-              <Route component={NotFound} />
-            </Switch>
+          <div className='news-grid'>
+            <Sidebar />
+            <div>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/about' component={About} />
+                <Route
+                  exact
+                  path='/(sports|entertainment|business|health|science|technology)/'
+                  component={News}
+                />
+                <Route
+                  exact
+                  path='/news/:id'
+                  render={props => <NewsItem props={NewsItem} />}
+                />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
           </div>
           <SuggestNews />
         </div>

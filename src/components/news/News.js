@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import NewsContext from '../../context/news/newsContext';
 import NewsItem from '../news/NewsItem';
 import Spinner from '../layout/Spinner';
@@ -18,16 +18,50 @@ const News = () => {
     return <Spinner />;
   } else {
     return (
-      <div>
-        <h1 className='tc'>{`${type[0].toUpperCase()}${type.slice(1)}`}</h1>
-        <div className='grid-2'>
-          {news.map(newsItem => (
-            <NewsItem newsItem={newsItem} key={newsItem._id} />
-          ))}
+      <Fragment>
+        <h1 className='tc'>{`${type[0].toUpperCase()}${type.slice(
+          1
+        )} News`}</h1>
+        <div style={homePageStyle}>
+          {type === 'general' && (
+            <div className='headlines'>
+              <div className='main-headline'>
+                <NewsItem newsItem={news[0]} key={news[0]} />
+              </div>
+              <div className='sub-headlines'>
+                <div className='sub-headline-item'>
+                  <NewsItem
+                    newsItem={news[1]}
+                    key={news[1]}
+                    parent={'suggest'}
+                  />
+                </div>
+                <div className='sub-headline-item'>
+                  <NewsItem
+                    newsItem={news[2]}
+                    key={news[2]}
+                    parent={'suggest'}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+          <div className='grid-2'>
+            {news.slice(4).map(newsItem => (
+              <NewsItem newsItem={newsItem} key={newsItem._id} />
+            ))}
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
+};
+
+const homePageStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexFlow: 'column',
+  alignItems: 'center'
 };
 
 export default News;

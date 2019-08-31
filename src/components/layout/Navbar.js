@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className='navbar bg-primary'>
-      <h1>
-        <i className='fas fa-globe'></i>
-        World Wide News
-      </h1>
+      <Link to='/'>
+        <h1>
+          <i className='fas fa-globe'></i>
+          World Wide News
+        </h1>
+      </Link>
       <ul>
         <li>
           <Link to='/'>Home</Link>
