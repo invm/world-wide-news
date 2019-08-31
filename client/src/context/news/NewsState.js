@@ -84,7 +84,7 @@ const NewsState = props => {
       };
       let res = [];
       await axios
-        .get('http://localhost:5000/api/news')
+        .get('../../../../routes/api/news.js')
         .then(response => {
           res = [...response.data];
         })
