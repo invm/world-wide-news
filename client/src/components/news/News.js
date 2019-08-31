@@ -47,7 +47,8 @@ const News = () => {
             </div>
           )}
           <div className='grid-2'>
-            {news.slice(4).map(newsItem => (
+            {news.slice(4, -4).map(newsItem => (
+              // First 3 pieces go to headlines above and four last go to suggested news
               <NewsItem newsItem={newsItem} key={newsItem._id} />
             ))}
           </div>

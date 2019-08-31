@@ -4,9 +4,12 @@ World Wide News is a news site, gathering and categorizing news, shows them in a
 
 Will be hosted soon and readme will be edited.
 
-## Built With
+## Built with the MERN stack
 
+- MongoDB
+- Express
 - React
+- Node
 
 ## Authors
 
