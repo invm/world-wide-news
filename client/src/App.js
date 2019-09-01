@@ -18,8 +18,8 @@ function App() {
   return (
     <NewsState>
       <Router>
+        <Navbar />
         <div className='container'>
-          <Navbar />
           <Categories />
           <div className='news-grid'>
             <Sidebar />

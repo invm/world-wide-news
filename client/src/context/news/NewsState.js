@@ -34,8 +34,8 @@ const NewsState = props => {
   const [state, dispatch] = useReducer(NewsReducer, initialState);
 
   window.addEventListener('DOMContentLoaded', event => {
+    setWeatherLoading();
     if (navigator.geolocation) {
-      setWeatherLoading();
       navigator.geolocation.getCurrentPosition(position => {
         // console.log(position);
         let lat = position.coords.latitude;

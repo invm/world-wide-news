@@ -11,7 +11,7 @@ const Navbar = () => {
         </h1>
       </Link>
       <ul>
-        <li>
+        <li id='dont-display'>
           <Link to='/'>Home</Link>
         </li>
         <li>

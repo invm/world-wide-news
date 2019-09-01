@@ -52,6 +52,9 @@ const NewsItem = ({ newsItem, parent }) => {
 
   const handleSingle = () => {
     newsContext.single = newsItem;
+    var singleItem = document.querySelector('.news-item');
+
+    window.scrollTo(0, singleItem.offsetTop - 230);
   };
 
   if (single == null) {

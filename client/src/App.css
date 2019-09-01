@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: #252525;
+  color: white;
 }
 
 ul {
@@ -117,8 +117,13 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -218,8 +223,8 @@ canvas {
   padding: 2%;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
   margin-top: 2%;
 }
 
@@ -290,7 +295,7 @@ canvas {
   grid-gap: 1rem;
 }
 
-.categories ul li {
+.categories ul a li {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -301,20 +306,16 @@ canvas {
   padding-left: 1%;
   padding-right: 1%;
   border-radius: 2em;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   -webkit-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 3px 2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.categories ul li:hover {
+.categories ul a li:hover {
   background: #5100e9;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.categories ul li:hover a {
-  color: white;
 }
 
 .headlines {
@@ -385,6 +386,11 @@ canvas {
 }
 
 @media screen and (max-width: 1000px) {
+  .weather-app .location {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .suggest .inner {
     display: -ms-grid;
     display: grid;
@@ -394,7 +400,22 @@ canvas {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
+  .weather-app {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+  .weather-app .location {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  .navbar {
+    padding: 0.3em 1em;
+  }
   .news-grid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -407,10 +428,6 @@ canvas {
   .sidebar .sidebar-news {
     display: none;
   }
-  .sidebar .weather-app .temperature canvas {
-    height: 100%;
-    width: auto;
-  }
   .inline-block {
     width: 100%;
   }
@@ -421,15 +438,9 @@ canvas {
   .container {
     padding: 0 1rem;
   }
-  .navbar {
-    padding: 0.5em;
-  }
-  .navbar ul {
-    display: none;
-  }
   .grid-2 {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
   .categories ul {
     -ms-grid-columns: (1fr)[3];
@@ -444,6 +455,12 @@ canvas {
   .headlines .sub-headlines {
     display: none;
   }
+  .navbar {
+    padding: 0.5em;
+  }
+  .navbar ul li:first-child {
+    display: none;
+  }
   .suggest .inner {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
@@ -454,6 +471,10 @@ canvas {
   }
   .container {
     padding: 0 2%;
+  }
+  .grid-2 {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
   }
 }
 

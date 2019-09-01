@@ -14,7 +14,16 @@ const Weather = () => {
   }
   if (loading) {
     temperature = null;
-    return null;
+    return (
+      <div className='weather-app'>
+        <div className='location badge bg-primary'>
+          All news provided by <a href='https://newsapi.org/'>NEWSAPI</a>
+        </div>
+        <div className='location badge bg-primary'>
+          Please allow location to see current weather.
+        </div>
+      </div>
+    );
   } else {
     return (
       <div className='weather-app'>
@@ -25,11 +34,11 @@ const Weather = () => {
           <h3 className='degrees'> {temperature} </h3>
           <h3 className='location'>{timezone}</h3>
         </div>
-        <div className='location badge bg-primary'>
-          <p className='weather-description'>{summary}</p>
-        </div>
         <div className='temperature badge bg-primary'>
-          <Skycons color='white' icon={icon} />
+          <p className='weather-description'>{summary}</p>
+          <p>
+            <Skycons color='white' icon={icon} />
+          </p>
         </div>
       </div>
     );

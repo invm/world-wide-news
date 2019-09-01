@@ -5,24 +5,24 @@ const Categories = () => {
   return (
     <div className='categories'>
       <ul>
-        <li>
-          <Link to='/business/'>Business</Link>
-        </li>
-        <li>
-          <Link to='/sports/'>Sports</Link>
-        </li>
-        <li>
-          <Link to='/entertainment/'>Entertainment</Link>
-        </li>
-        <li>
-          <Link to='/technology/'>Technology</Link>
-        </li>
-        <li>
-          <Link to='/health/'>Health</Link>
-        </li>
-        <li>
-          <Link to='/science/'>Science</Link>
-        </li>
+        <Link to='/business/'>
+          <li>Business</li>
+        </Link>
+        <Link to='/sports/'>
+          <li>Sports</li>
+        </Link>
+        <Link to='/entertainment/'>
+          <li>Entertainment</li>
+        </Link>
+        <Link to='/technology/'>
+          <li>Technology</li>
+        </Link>
+        <Link to='/health/'>
+          <li>Health</li>
+        </Link>
+        <Link to='/science/'>
+          <li>Science</li>
+        </Link>
       </ul>
     </div>
   );

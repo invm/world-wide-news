@@ -21,7 +21,9 @@ export default (state, action) => {
     case SET_WEATHER_LOADING:
       return {
         ...state,
-        loading: true
+        weather: {
+          loading: true
+        }
       };
     case SET_LOCATION:
       return {
