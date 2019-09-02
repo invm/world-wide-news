@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const schedule = require('node-schedule');
 const path = require('path');
 
 const NewsAPI = require('newsapi');
@@ -46,7 +45,11 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 
-  // var j = schedule.scheduleJob('* * 8 * *', function() {
+  getNews();
+
+  setInterval(getNews, 1000 * 86400); // Update once a day
+
+  function getNews() {
     NewsPiece.find((err, news) => {
       if (err) return console.error(err);
       news.forEach(newsItem => {
@@ -94,5 +97,5 @@ app.listen(port, () => {
         })
         .catch(err => console.log(err));
     });
-  // });
+  }
 });
