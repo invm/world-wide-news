@@ -46,7 +46,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 
-  var j = schedule.scheduleJob('* * 8 * *', function() {
+  // var j = schedule.scheduleJob('* * 8 * *', function() {
     NewsPiece.find((err, news) => {
       if (err) return console.error(err);
       news.forEach(newsItem => {
@@ -94,5 +94,5 @@ app.listen(port, () => {
         })
         .catch(err => console.log(err));
     });
-  });
+  // });
 });
