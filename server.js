@@ -50,12 +50,6 @@ app.listen(port, () => {
   setInterval(getNews, 1000 * 86400); // Update once a day
 
   function getNews() {
-    NewsPiece.find((err, news) => {
-      if (err) return console.error(err);
-      news.forEach(newsItem => {
-        newsItem.remove();
-      });
-    });
     const collections = [
       'general',
       'business',
@@ -71,10 +65,16 @@ app.listen(port, () => {
         .topHeadlines({
           // sources: 'bbc-news,the-verge',
           category: `${collection}`,
-          language: 'en',
-          country: 'us'
+          language: 'en'
+          // country: 'us'
         })
         .then(response => {
+          NewsPiece.find((err, news) => {
+            if (err) return console.error(err);
+            news.forEach(newsItem => {
+              newsItem.remove();
+            });
+          });
           response.articles.forEach(article => {
             if (article.title && article.description && article.urlToImage) {
               const newsPiece = new NewsPiece({
