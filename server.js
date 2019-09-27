@@ -60,6 +60,13 @@ app.listen(port, () => {
       'sports'
     ];
 
+    NewsPiece.find((err, news) => {
+      if (err) return console.error(err);
+      news.forEach(newsItem => {
+        newsItem.remove();
+      });
+    });
+
     collections.forEach(collection => {
       newsapi.v2
         .topHeadlines({
@@ -69,14 +76,6 @@ app.listen(port, () => {
           country: 'us'
         })
         .then(response => {
-          if (response.articles.length > 50) {
-            NewsPiece.find((err, news) => {
-              if (err) return console.error(err);
-              news.forEach(newsItem => {
-                newsItem.remove();
-              });
-            });
-          }
           response.articles.forEach(article => {
             if (article.title && article.description && article.urlToImage) {
               const newsPiece = new NewsPiece({
